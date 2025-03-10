@@ -14,6 +14,9 @@ async function main() {
       button.disabled = true
       button.textContent = "Fetching..."
       const response = await fetch("/hello", {
+        method: "POST",
+        body: JSON.stringify({
+        }),
         headers: {
           "Authorization": `Bearer ${token}`
         }
