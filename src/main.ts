@@ -10,8 +10,7 @@ async function main() {
   } else {
     const token = await clerk.session.getToken()
 
-    async function fetchData() {
-      const button = document.getElementById("fetch-data-button")! as HTMLButtonElement
+    async function fetchData(button: HTMLButtonElement) {
       button.disabled = true
       button.textContent = "Fetching..."
       const response = await fetch("/hello", {
@@ -33,7 +32,7 @@ async function main() {
 
     const button = document.createElement("button")
     button.textContent = "Fetch Data"
-    button.onclick = fetchData
+    button.onclick = () => fetchData(button)
     app.appendChild(button)
   }
 }
